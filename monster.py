@@ -1,4 +1,4 @@
-from monstros.create_monters import *
+from create_monters import *
 
 import random
 
@@ -14,11 +14,12 @@ def criar_monstros_aleatorios(num_monstros):
     lista_monstros = []
 
     for lvl in range(1, num_monstros + 1):
+
         with open('animais.txt', 'r') as arqv:      # vai ler o arquivo txt, no modo leitura
             animais = arqv.readlines()      # vai ler as linhas
             animal_aleatorio = random.choice(animais).strip()   # das linhas que leu, vai escolher uma aleat
         
-        with open('adjetivos.txt'), 'r' as arqv:
+        with open('adjetivos.txt', 'r') as arqv:
             adjetivos = arqv.readlines()
             adjetivo_aleatorio = random.choice(adjetivos).strip()
         
@@ -36,4 +37,4 @@ def criar_monstros_aleatorios(num_monstros):
 monstros_aleatorios = criar_monstros_aleatorios(10)
 
 for monstro in monstros_aleatorios:
-    print(f'Lvl: {monstro.level} nome: {monstro.nome} (Hp: {monstro.hp} Atk: {monstro.ataque})')
+    print(f'Lvl {monstro.level}:  {monstro.nome} | (Hp: {monstro.hp} Atk: {monstro.ataque})')

@@ -85,6 +85,7 @@ def inserir_dados_no_arquivo(nome_arquivo, lista):
     finally:
         arqv.close()
 
+# executando as funções acima nestes 2 blocos abaixo:
 arqv0 = 'animais.txt'
 if not arquivo_Existe(arqv0):       # Vai verificar se o arquivo existe
     criar_arquivo(arqv0)            # Se animal.txt não existir, ele vai criar
@@ -95,3 +96,4 @@ if not arquivo_Existe(arqv1):       # Vai verificar se o arquivo existe
     criar_arquivo(arqv1)            # Se animal.txt não existir, ele vai criar
     inserir_dados_no_arquivo(arqv1, lista_adjetivos)    # e vai inserir a lista_animais dentro do animal.txt
 
+# depois de executar tudo isso 2 arquivos txt vão ser criados, objeto é trabalhar com esses arquivos txt criados e extrair e usar informações que estão dentro deles.
