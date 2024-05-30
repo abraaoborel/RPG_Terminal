@@ -38,3 +38,4 @@ monstros_aleatorios = criar_monstros_aleatorios(10)
 
 for monstro in monstros_aleatorios:
     print(f'Lvl {monstro.level}:  {monstro.nome} | (Hp: {monstro.hp} Atk: {monstro.ataque})')
+    
