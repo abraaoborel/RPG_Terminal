@@ -98,99 +98,56 @@ with open(caminho_arqv_py_listas_nomes, 'w') as arquivo:
 print('Códigos escritos com sucesso dentro do arquivo python: listap_nomes.py')
 
 
+# Para otimizar o programa e reutlizar as funções aqui utilizadas acima
+# Estudar o código abaixo e entender todo o processo!
 
+# import os
 
-# def arquivo_Existe(nome_arquivo):
-#     """
-#     coloquei (a) só pra ficar mais fácil
+# def criar_pasta(nome_pasta):
+#     if not os.path.exists(nome_pasta):
+#         os.makedirs(nome_pasta)
+#         print(f'Pasta "{nome_pasta}" criada com sucesso.')
 
-#     a = open(nome_arquivo, 'rt'):
-#         Aqui estamos tentando abrir o arquivo chamado nome_arquivo no modo de leitura ('rt').
-#         O 'r' significa que queremos ler o arquivo, e o 't' significa que é um arquivo de texto.
+# def criar_arquivo_vazio(nome_arquivo):
+#     if not os.path.exists(nome_arquivo):
+#         with open(nome_arquivo, 'w'):
+#             pass
+#         print(f'Arquivo "{nome_arquivo}" criado com sucesso.')
 
-#     a.close():
-#         Depois de abrir o arquivo, estamos fechando-o para garantir que tudo esteja organizado.
+# def escrever_arquivo(lista_dados, nome_arquivo):
+#     with open(nome_arquivo, 'w') as arquivo:
+#         for dado in lista_dados:
+#             arquivo.write(f'{dado}\n')
+#         print(f'Dados escritos no arquivo "{nome_arquivo}" com sucesso.')
 
-#     :param nome_arquivo: Recebe o nome do arquivo que vai ser verificado
+# def main():
+#     # Criando a pasta criando_monstros se ela não existir
+#     caminho_pasta_monstros = 'criando_monstros'
+#     criar_pasta(caminho_pasta_monstros)
 
-#     Anotações para uso:
-#         arq = 'cursoemvideo.txt'
+#     # Obtendo o caminho completo do diretório atual
+#     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 
-#         if not arquivoExiste(arq):
-#             criarArquivo(arq)
-#     """
-#     try:
-#         a = open(nome_arquivo, 'rt')
-#         a.close()
-#     except FileNotFoundError:
-#         return False
-#     else:
-#         return True
-    
-# def criar_arquivo(nome_arquivo):
-#     """
-#     Também coloquei (a) só pra ficar mais fácil (poderia escrever qualquer coisa)
+#     # Definindo o caminho completo da pasta criando_monstros
+#     caminho_pasta_monstros = os.path.join(diretorio_atual, 'criando_monstros')
 
-#     a = open(nome_arquivo, 'wt+'):
-#         Aqui estamos tentando abrir o arquivo chamado nome_arquivo no modo de escrita ('w').
-#         O 't' significa que é um arquivo de texto.
-#         O '+' indica que, se o arquivo não existir, ele será criado.
+#     # Criando os arquivos.txt dentro da pasta criando_monstros
+#     caminho_arqv_animais = os.path.join(caminho_pasta_monstros, 'animais.txt')
+#     caminho_arqv_adjetivos = os.path.join(caminho_pasta_monstros, 'adjetivos.txt')
+#     caminho_arqv_py_listas_nomes = os.path.join(caminho_pasta_monstros, 'lista_p_nomes.py')
 
-#     a.close():
-#         Depois de abrir o arquivo (ou criá-lo), estamos fechando-o para garantir que tudo esteja organizado.
+#     criar_arquivo_vazio(caminho_arqv_animais)
+#     criar_arquivo_vazio(caminho_arqv_adjetivos)
+#     criar_arquivo_vazio(caminho_arqv_py_listas_nomes)
 
-#     :param nome_arquivo: Recebe o nome do arquivo que queremos criar
+#     lista_adjetivos = ['Feroz', 'Assustador', 'Brutal', 'Sanguinario', 'Assasino', 
+#                        'Sombrio', 'Gigante', 'Mutante', 'Veraz', 'Mutante']
+#     lista_animais = ['Dragao', 'Lobisomem', 'Golem', 'Orc', 'Cerberus',
+#                      'Harpia', 'Zumbi', 'Ciclope', 'Urso', 'Vespa']
 
-#     Anotações para uso:
-#         arq = 'cursoemvideo.txt'
+#     # Escrevendo os dados nos arquivos.txt
+#     escrever_arquivo(lista_adjetivos, caminho_arqv_adjetivos)
+#     escrever_arquivo(lista_animais, caminho_arqv_animais)
 
-#         if not arquivoExiste(arq):
-#             criarArquivo(arq)
-#     """
-#     try:
-#         a = open(nome_arquivo, 'wt+')
-#         a.close()
-#     except:
-#         print(f'Houve um erro na criação do arquivo ({nome_arquivo})')
-#     else:
-#         print(f'Arquivo ({nome_arquivo}) criado com sucesso!')
-
-# def inserir_dados_no_arquivo(nome_arquivo, lista):
-#     """
-#     with open(nome_arquivo, 'at') as arqv:
-#         Aqui estamos abrindo o arquivo chamado nome_arquivo no modo de escrita ('at').
-#         O with garante que o arqv seja aberto e fechado automaticamente.
-
-#     arqv.write(f'{item}\n'):
-#         Aqui estamos escrevendo cada palavra (item) no arquivo.
-    
-#     Vamos percorrer esta lista, e para cada item dentro da lista vamos escrevê-lo no arqv
-
-#     finally:
-#          close() é só pra fechar mesmo o arquivo, mas eu poderia tirar para evitar um futuro conflito talvez?!
-#         Esté bloco é opcinal, tirar ou deixar ele não altera o placar!
-#     """
-#     try:
-#         with open(nome_arquivo, 'at') as arqv:
-#             for item in lista:
-#                 arqv.write(f'{item}\n')
-#     except Exception as error:
-#         print(f'Houve um erro na hora de escrever os dados em {nome_arquivo}: {error}')
-#     else:
-#         print(f'Lista escrita em {nome_arquivo} com sucesso!')
-#     finally:
-#         arqv.close()
-
-# # executando as funções acima nestes 2 blocos abaixo:
-
-# #arqv0 = 'animais.txt'
-# if not arquivo_Existe(caminho_arqv_animais):       # Vai verificar se o arquivo existe
-#     criar_arquivo(caminho_arqv_animais)            # Se animal.txt não existir, ele vai criar
-#     inserir_dados_no_arquivo(caminho_arqv_animais, lista_animais)      # e vai inserir a lista_animais dentro do animal.txt
-
-# arqv1 = 'adjetivos.txt'
-# if not arquivo_Existe(caminho_arqv_adjetivos):       # Vai verificar se o arquivo existe
-#     criar_arquivo(caminho_arqv_adjetivos)            # Se animal.txt não existir, ele vai criar
-#     inserir_dados_no_arquivo(caminho_arqv_adjetivos, lista_adjetivos)    # e vai inserir a lista_animais dentro do animal.txt
-
-# # depois de executar tudo isso 2 arquivos txt vão ser criados, objeto é trabalhar com esses arquivos txt criados e extrair e usar informações que estão dentro deles.
+# if __name__ == "__main__":
+#     main()
