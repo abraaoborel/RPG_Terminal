@@ -1,4 +1,4 @@
-# from monstros.create_monters import *
+
 from criando_monstros import *
 
 import random
