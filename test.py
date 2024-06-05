@@ -5,7 +5,6 @@ import threading
 
 def play_sounds():
     while True:
-        playsound('trovao1.mp3')
         playsound('chuva1.mp3')
         
 
